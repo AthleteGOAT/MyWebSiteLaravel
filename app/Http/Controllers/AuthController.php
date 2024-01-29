@@ -19,6 +19,9 @@ class AuthController extends Controller
         $user = new Users();
         $user->name = $req -> input('userName');
         $user->email = $req -> input('userEmail');
+        if(users::where('email',$user->email)->first()){
+            return redirect()->back()->withInput()->with('unsuccessful','This email is already used! Choose another one!');
+        }
         $salt = bin2hex(random_bytes(16));
         $user->salt = $salt;
 
@@ -28,6 +31,7 @@ class AuthController extends Controller
             return redirect()->back()->withInput()->with('unsuccessful','Password is wrong');
 
         }
+
         $user->save();
         return redirect()->route('home')->with('successful','You are registered!');
     }

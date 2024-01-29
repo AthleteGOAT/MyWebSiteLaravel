@@ -44,6 +44,12 @@
                                                 </div>
                                             @endif
                                         </div>
+                                        <br>
+                                        @if(session('unsuccessful'))
+                                            <div class="alert alert-danger">
+                                                {{session('unsuccessful')}}
+                                            </div>
+                                        @endif
                                     </div>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
