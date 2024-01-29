@@ -34,7 +34,25 @@ class AuthController extends Controller
 
     function login(AuthRequest $req){
 
+        $user = users::where('email',$req->input('userEmailLogin'))->first();
+        if($user == NULL){
+            return redirect()->back()->withInput()->with('unsuccessful', 'This email doesn\'t exist!');
+        }
+
+        $user_password = hash('sha256', $user->salt.$req->input('userPasswordLogin'));
+        if($user_password != $user->password){
+            return redirect()->back()->withInput()->with('unsuccessful','Password is wrong!');
+        }
+
+        $req->session()->put('user_id', $user->id);
+        return redirect()->route('home')->with('successful','You are log in');
     }
+    function logout(Request $request)
+    {
+        $request->session()->flush();
+        return redirect()->back();
+    }
+
 
 
 

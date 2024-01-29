@@ -17,21 +17,29 @@
         </div>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-            <li><a href="#" class="nav-link px-2">Features</a></li>
-            <li><a href="#" class="nav-link px-2">Pricing</a></li>
-            <li><a href="#" class="nav-link px-2">FAQs</a></li>
-            <li><a href="#" class="nav-link px-2">About</a></li>
+            <li><a href="{{ route('home') }}" class="nav-link px-2 link-secondary">Home</a></li>
+            <li><a href="{{ route('restrictedPage') }}" class="nav-link px-2">Restricted</a></li>
         </ul>
+    @if(!session()->has('user_id'))
+            <div class="col-md-3 text-end">
+                <form action="{{ route('auth') }}" method="get" class="d-inline">
+                    <button type="submit" class="btn btn-outline-primary me-2">Login</button>
+                </form>
+                <form action="{{ route('goToRegister') }}" method="get" class="d-inline">
+                    <button type="submit" class="btn btn-primary">Sign-up</button>
+                </form>
+            </div>
 
-        <div class="col-md-3 text-end">
-            <form action="{{ route('auth') }}" method="get" class="d-inline">
-                <button type="submit" class="btn btn-outline-primary me-2">Login</button>
-            </form>
-            <form action="{{ route('goToRegister') }}" method="get" class="d-inline">
-                <button type="submit" class="btn btn-primary">Sign-up</button>
-            </form>
-        </div>
+    @endif
+        @if(session()->has('user_id'))
+            <div class="col-md-3 text-end">
+                <form action="{{ route('logout') }}" method="post" class="d-inline">
+                    @csrf
+                    <button type="submit" class="btn btn-outline-primary me-2">Log out</button>
+                </form>
+            </div>
+        @endif
+
 
 
     </header>
