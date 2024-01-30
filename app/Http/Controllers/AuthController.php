@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthRequest;
+use App\Http\Requests\createRequest;
 use App\Http\Requests\registerRequest;
 use App\Models\Users;
 use App\Models\userPosts;
@@ -63,6 +64,8 @@ class AuthController extends Controller
 
         return view('home', compact('posts'));
     }
+
+
 
 
 

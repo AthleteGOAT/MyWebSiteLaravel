@@ -25,7 +25,7 @@
     @endif
         @if(session()->has('user_id'))
             <div class="col-md-3 text-end">
-                <form action="{{ route('goToRegister') }}" method="get" class="d-inline">
+                <form action="{{ route('goToCreate') }}" method="get" class="d-inline">
                     <button type="submit" class="btn btn-primary">Add post</button>
                 </form>
                 <form action="{{ route('logout') }}" method="post" class="d-inline">

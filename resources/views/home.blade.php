@@ -10,8 +10,10 @@
     <title>Document</title>
 </head>
 <body>
-    @include('layouts.header')
-    @include('layouts.content')
-    @include('layouts.footer')
+    <div class="container">
+        @include('layouts.header')
+        @include('layouts.content')
+        @include('layouts.footer')
+    </div>
 </body>
 </html>
