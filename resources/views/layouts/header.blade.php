@@ -1,13 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+
 <div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <div class="col-md-3 mb-2 mb-md-0">
@@ -28,11 +19,15 @@
                 <form action="{{ route('goToRegister') }}" method="get" class="d-inline">
                     <button type="submit" class="btn btn-primary">Sign-up</button>
                 </form>
+
             </div>
 
     @endif
         @if(session()->has('user_id'))
             <div class="col-md-3 text-end">
+                <form action="{{ route('goToRegister') }}" method="get" class="d-inline">
+                    <button type="submit" class="btn btn-primary">Add post</button>
+                </form>
                 <form action="{{ route('logout') }}" method="post" class="d-inline">
                     @csrf
                     <button type="submit" class="btn btn-outline-primary me-2">Log out</button>
@@ -44,5 +39,4 @@
 
     </header>
 </div>
-</body>
-</html>
+

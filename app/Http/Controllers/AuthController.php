@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AuthRequest;
 use App\Http\Requests\registerRequest;
 use App\Models\Users;
+use App\Models\userPosts;
 use Illuminate\Http\Request;
 use Random\RandomException;
 use function PHPUnit\Framework\isEmpty;
@@ -55,6 +56,12 @@ class AuthController extends Controller
     {
         $request->session()->flush();
         return redirect()->back();
+    }
+
+    function index(){
+        $posts = userPosts::all();
+
+        return view('home', compact('posts'));
     }
 
 

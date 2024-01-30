@@ -3,9 +3,7 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [AuthController::class, 'index'])->name('home');
 
 Route::get('/auth', function () {
     return view('auth');

@@ -5,14 +5,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-@include('header')
+@include('layouts.header')
 <div class="px-5 py-5 p-lg-0">
     <div class="d-flex justify-content-center">
-        <div class="col-12 col-md-9 col-lg-7 min-h-lg-screen d-flex flex-column justify-content-center py-lg-16 px-lg-20 position-relative">
+        <div
+            class="col-12 col-md-9 col-lg-7 min-h-lg-screen d-flex flex-column justify-content-center py-lg-16 px-lg-20 position-relative">
             <div class="row">
                 <div class="col-lg-10 col-md-9 col-xl-7 mx-auto">
                     <div class="text-center mb-12">
@@ -29,8 +31,9 @@
                     <form action="{{route('login')}}" method="post">
                         @csrf
                         <div class="mb-1">
-                            <label class="form-label" for="email" >Email address</label>
-                            <input type="email" class="form-control" name="userEmailLogin" id="email" placeholder="Your email address">
+                            <label class="form-label" for="email">Email address</label>
+                            <input type="email" class="form-control" name="userEmailLogin" id="email"
+                                   placeholder="Your email address">
                             @if($errors->has('userEmailLogin'))
                                 <div class="alert alert-danger">
                                     {{$errors->first('userEmailLogin')}}
@@ -39,7 +42,8 @@
                         </div>
                         <div class="mb-1">
                             <label class="form-label" for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="userPasswordLogin" placeholder="Password" autocomplete="current-password">
+                            <input type="password" class="form-control" id="password" name="userPasswordLogin"
+                                   placeholder="Password" autocomplete="current-password">
                             @if($errors->has('userPasswordLogin'))
                                 <div class="alert alert-danger">
                                     {{$errors->first('userPasswordLogin')}}
@@ -61,7 +65,7 @@
                         </div>
                         <div>
 
-                                <button type="submit" class="btn btn-outline-primary me-2">Sign In</button>
+                            <button type="submit" class="btn btn-outline-primary me-2">Sign In</button>
 
                         </div>
                     </form>
