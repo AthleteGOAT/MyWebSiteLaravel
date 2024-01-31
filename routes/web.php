@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\createController;
+use App\Http\Controllers\deleteController;
 use App\Http\Controllers\editController;
 use App\Models\userPosts;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,7 @@ Route::post('/create', [createController::class, 'create'])->name('create_post')
 Route::post('/updated/{id}', [editController::class, 'updated_post'])->name('updated_post');
 
 Route::get('/edit/{id}', [editController::class, 'edit'])->name('edit_post');
+Route::get('/deleted/{id}', [deleteController::class, 'delete_post'])->name('delete_post');
 
 
 

@@ -10,6 +10,7 @@
 
     <div class="row mb-2">
         @foreach($posts as $post)
+
             <div class="col-md-6">
                 <div class="card flex-md-row mb-4 box-shadow h-md-250">
                     <div class="card-body d-flex flex-column align-items-start">
@@ -20,11 +21,15 @@
                         <div class="mb-1 text-muted">Birth date:{{ $post->birth_date }}</div>
                         <p class="card-text mb-auto"><strong>About:</strong>{{ $post->about }}</p>
                         <div class="mt-1 text-muted">Created at:{{ $post->created_at }}</div>
-                        <form action="{{route('edit_post', $post->id)}}" method="get">
+                        <div class="d-flex">
+                            <form action="{{ route('edit_post', $post->id) }}" method="get" class="mr-2">
+                                <button type="submit" class="btn btn-warning">Edit</button>
+                            </form>
+                            <form action="{{ route('delete_post', $post->id) }}" method="GET">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
 
-
-                            <button type="submit" class="btn btn-warning">Edit</button>
-                        </form>
                     </div>
                     <img class="card-img-right flex-auto d-none d-md-block"  alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="{{ $post->image  }}" data-holder-rendered="true">
 
