@@ -24,7 +24,7 @@
                     @csrf
                     <div class="form-group">
                         <label>Name </label>
-                        <input type="text" class="form-control" name="Name" placeholder="Cat's name"/>
+                        <input type="text" class="form-control" name="name" placeholder="Cat's name"/>
                     </div>
 
                     <div class="form-group">

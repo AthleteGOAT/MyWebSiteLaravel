@@ -18,9 +18,16 @@
                             <a class="text-dark" href="#">{{ $post->name }}</a>
                         </h3>
                         <div class="mb-1 text-muted">Birth date:{{ $post->birth_date }}</div>
-                        <p class="card-text mb-auto">About:{{ $post->about }}</p>
+                        <p class="card-text mb-auto"><strong>About:</strong>{{ $post->about }}</p>
+                        <div class="mt-1 text-muted">Created at:{{ $post->created_at }}</div>
+                        <form action="{{route('edit_post', $post->id)}}" method="get">
+
+
+                            <button type="submit" class="btn btn-warning">Edit</button>
+                        </form>
                     </div>
                     <img class="card-img-right flex-auto d-none d-md-block"  alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="{{ $post->image  }}" data-holder-rendered="true">
+
                 </div>
             </div>
         @endforeach
